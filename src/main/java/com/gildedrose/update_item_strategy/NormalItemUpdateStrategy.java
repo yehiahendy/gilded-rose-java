@@ -17,6 +17,8 @@ public class NormalItemUpdateStrategy implements ItemUpdateStrategy {
     @Override
     public void updateQuality() {
         decreaseQuality();
+        if (isItemExpired(item.sellIn))
+            decreaseQuality();
     }
 
     @Override
