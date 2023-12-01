@@ -3,19 +3,30 @@ package com.gildedrose.update_item_strategy;
 import com.gildedrose.Item;
 
 public interface ItemUpdateStrategy {
-    void updateSellIn(Item item);
+    void updateSellIn();
 
-    void decreaseSellIn(Item item);
+    void updateQuality();
 
-    void updateQuality(Item item);
+    void update();
 
-    void increaseQuality(Item item);
+    default void decreaseSellIn() {
+        getItem().sellIn--;
+    }
 
-    void decreaseQuality(Item item);
+    default void increaseQuality() {
+        if (getItem().quality < 50)
+            getItem().quality++;
+    }
 
+    default void decreaseQuality() {
+        if (getItem().quality > 0)
+            getItem().quality--;
+    }
 
-    default boolean isItemExpired(Item item) {
-        return item.sellIn < 0;
+    Item getItem();
+
+    default boolean isItemExpired(int numberOfDays) {
+        return numberOfDays < 0;
     }
 
 
