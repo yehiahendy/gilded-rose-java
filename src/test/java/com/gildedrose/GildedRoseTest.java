@@ -102,6 +102,20 @@ class GildedRoseTest {
         assertEquals(14, gildedRose.items[0].quality);
         assertEquals(1, gildedRose.items[2].quality);
     }
+    @Test
+    @DisplayName("Aged brie item Quality value increase twice as fast when all sell sby date has passed ")
+    void AgedBrieQualityValueShouldIncreaseTwiceIfSellInNegative() {
+        //Arrange
+        int numberOfDays = 3;
+        items[1].sellIn = 0;
+        items[1].quality = 10;
+        GildedRose gildedRose = new GildedRose(items);
+        //Act
+        for (int i = 0; i < numberOfDays; i++)
+            gildedRose.updateQuality();
+        //Assert
+        assertEquals(16, gildedRose.items[1].quality);
+    }
 
     @Test
     @DisplayName("Normal item Quality value Can't be negative ")
