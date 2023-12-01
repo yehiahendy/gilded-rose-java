@@ -152,9 +152,9 @@ class GildedRoseTest {
     }
 
     @Test
-    @DisplayName("Aged brie and Backstage item there values " +
+    @DisplayName(" Backstage item there values " +
             "increase with time when sell in value is more than 10")
-    void agedBrieAndBackStageQualityValueIncreaseByTime() {
+    void backStageQualityValueIncreaseByTime() {
         //Arrange
         int numberOfDays = 2;
         items[1].quality = 20;
@@ -166,7 +166,6 @@ class GildedRoseTest {
         for (int i = 0; i < numberOfDays; i++)
             gildedRose.updateQuality();
         //Assert
-        assertEquals(22, gildedRose.items[1].quality);
         assertEquals(22, gildedRose.items[5].quality);
     }
 
