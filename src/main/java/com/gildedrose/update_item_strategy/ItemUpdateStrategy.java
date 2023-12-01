@@ -26,7 +26,7 @@ public interface ItemUpdateStrategy {
     Item getItem();
 
     default boolean isItemExpired(int numberOfDays) {
-        return numberOfDays < 0;
+        return numberOfDays <= 0;
     }
 
 
