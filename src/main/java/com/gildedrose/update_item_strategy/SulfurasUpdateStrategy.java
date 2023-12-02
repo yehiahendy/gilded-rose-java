@@ -21,7 +21,8 @@ public class SulfurasUpdateStrategy implements ItemUpdateStrategy {
 
     @Override
     public void update() {
-
+        updateQuality();
+        updateSellIn();
     }
 
     @Override
