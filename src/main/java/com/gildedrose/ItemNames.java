@@ -1,6 +1,5 @@
 package com.gildedrose;
 
-import com.gildedrose.update_item_strategy.ItemUpdateStrategy;
 
 public interface ItemNames {
     String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
