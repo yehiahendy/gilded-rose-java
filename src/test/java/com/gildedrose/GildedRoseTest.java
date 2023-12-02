@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static com.gildedrose.ItemNames.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
@@ -14,13 +15,13 @@ class GildedRoseTest {
     void setUp() {
         items = new Item[]{
                 new Item("+5 Dexterity Vest", 10, 20), //
-                new Item("Aged Brie", 2, 0), //
+                new Item(AGED_BRIE, 2, 0), //
                 new Item("Elixir of the Mongoose", 5, 7), //
-                new Item("Sulfuras, Hand of Ragnaros", 0, 80), //
-                new Item("Sulfuras, Hand of Ragnaros", -1, 80),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
+                new Item(SULFURAS_HAND_OF_RAGNAROS, 0, 80), //
+                new Item(SULFURAS_HAND_OF_RAGNAROS, -1, 80),
+                new Item(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT, 15, 20),
+                new Item(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT, 10, 49),
+                new Item(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT, 5, 49),
         };
     }
 
@@ -102,6 +103,7 @@ class GildedRoseTest {
         assertEquals(14, gildedRose.items[0].quality);
         assertEquals(1, gildedRose.items[2].quality);
     }
+
     @Test
     @DisplayName("Aged brie item Quality value increase twice as fast when all sell sby date has passed ")
     void AgedBrieQualityValueShouldIncreaseTwiceIfSellInNegative() {
