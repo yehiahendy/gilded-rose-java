@@ -1,6 +1,7 @@
 package com.gildedrose;
 
-import com.gildedrose.update_item_strategy.*;
+import com.gildedrose.factory.ItemUpdateFactory;
+import com.gildedrose.update_item_strategy.ItemUpdateStrategy;
 
 class GildedRose {
     Item[] items;
@@ -11,22 +12,10 @@ class GildedRose {
 
     public void updateQuality() {
         ItemUpdateStrategy itemUpdateStrategy;
+        ItemUpdateFactory factory = new ItemUpdateFactory();
         for (Item item : items) {
-            itemUpdateStrategy = createItemUpdateStrategy(item);
+            itemUpdateStrategy = factory.createItemUpdateStrategy(item);
             itemUpdateStrategy.update();
-        }
-    }
-
-    private ItemUpdateStrategy createItemUpdateStrategy(Item item) {
-        switch (item.name) {
-            case "Sulfuras, Hand of Ragnaros":
-                return new SulfurasUpdateStrategy(item);
-            case "Aged Brie":
-                return new AgedBrieUpdateStrategy(item);
-            case "Backstage passes to a TAFKAL80ETC concert":
-                return new BackStageUpdateStrategy(item);
-            default:
-                return new NormalItemUpdateStrategy(item);
         }
     }
 }
